@@ -1,0 +1,6 @@
+apiVersion: view.yasuhiroabe.github.io/v1
+kind: YATestOperator
+metadata:
+  name: yatestoperator-sample
+spec:
+  # TODO(user): Add fields here

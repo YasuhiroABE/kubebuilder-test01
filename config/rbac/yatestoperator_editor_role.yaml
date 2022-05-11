@@ -1,0 +1,24 @@
+# permissions for end users to edit yatestoperators.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: yatestoperator-editor-role
+rules:
+- apiGroups:
+  - view.yasuhiroabe.github.io
+  resources:
+  - yatestoperators
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - view.yasuhiroabe.github.io
+  resources:
+  - yatestoperators/status
+  verbs:
+  - get
