@@ -1,0 +1,6 @@
+domain: yasuhiroabe.github.io
+layout:
+- go.kubebuilder.io/v3
+projectName: proj
+repo: github.com/yasuhiroabe/kubebuilder-test01
+version: "3"
