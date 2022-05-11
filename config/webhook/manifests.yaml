@@ -1,0 +1,54 @@
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  creationTimestamp: null
+  name: mutating-webhook-configuration
+webhooks:
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: webhook-service
+      namespace: system
+      path: /mutate-view-yasuhiroabe-github-io-v1-yatestoperator
+  failurePolicy: Fail
+  name: myatestoperator.kb.io
+  rules:
+  - apiGroups:
+    - view.yasuhiroabe.github.io
+    apiVersions:
+    - v1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - yatestoperators
+  sideEffects: None
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  creationTimestamp: null
+  name: validating-webhook-configuration
+webhooks:
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: webhook-service
+      namespace: system
+      path: /validate-view-yasuhiroabe-github-io-v1-yatestoperator
+  failurePolicy: Fail
+  name: vyatestoperator.kb.io
+  rules:
+  - apiGroups:
+    - view.yasuhiroabe.github.io
+    apiVersions:
+    - v1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - yatestoperators
+  sideEffects: None

@@ -1,0 +1,33 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - view.yasuhiroabe.github.io
+  resources:
+  - yatestoperators
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - view.yasuhiroabe.github.io
+  resources:
+  - yatestoperators/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - view.yasuhiroabe.github.io
+  resources:
+  - yatestoperators/status
+  verbs:
+  - get
+  - patch
+  - update
